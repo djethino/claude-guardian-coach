@@ -1,6 +1,6 @@
 {
   "name": "claude-guardian-coach",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Behavioral guidance and context preservation for Claude Code",
   "author": {
     "name": "ASymptOmatik"
