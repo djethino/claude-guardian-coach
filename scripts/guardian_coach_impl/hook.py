@@ -40,34 +40,18 @@ def main() -> int:
         if isinstance(file_path, str):
             corrected_path, reason = analyze_and_fix_path(file_path, cwd)
             if corrected_path:
-                # For Edit: Claude checks "file read" status BEFORE applying updatedInput,
-                # so we must deny with coaching instead of rewriting
-                if tool_name == "Edit":
-                    output = {
-                        "hookSpecificOutput": {
-                            "hookEventName": "PreToolUse",
-                            "permissionDecision": "deny",
-                            "permissionDecisionReason": (
-                                f"PATH CORRECTION: Use relative path instead.\n\n"
-                                f"Change: {file_path}\n"
-                                f"To:     {corrected_path}\n\n"
-                                f"Reason: {reason}"
-                            ),
-                        }
+                # Try updatedInput for all tools (including Edit)
+                output = {
+                    "hookSpecificOutput": {
+                        "hookEventName": "PreToolUse",
+                        "permissionDecision": "allow",
+                        "updatedInput": {
+                            **tool_input,
+                            "file_path": corrected_path,
+                        },
+                        "systemMessage": f"PATH CORRECTED: {file_path} -> {corrected_path}",
                     }
-                else:
-                    # For Read/Write: updatedInput works fine
-                    output = {
-                        "hookSpecificOutput": {
-                            "hookEventName": "PreToolUse",
-                            "permissionDecision": "allow",
-                            "updatedInput": {
-                                **tool_input,
-                                "file_path": corrected_path,
-                            },
-                            "systemMessage": f"PATH CORRECTED: {file_path} -> {corrected_path}",
-                        }
-                    }
+                }
                 print(json.dumps(output))
                 return 0
         return 0
