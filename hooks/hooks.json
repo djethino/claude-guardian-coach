@@ -1,0 +1,101 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/on_prompt.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/on_prompt.py\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/on_stop.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/on_stop.py\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/post_compact.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/post_compact.py\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/guardian_coach.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/on_file_access.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/on_file_access.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/on_file_access.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/on_file_access.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 --version >/dev/null 2>&1 && python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/on_file_access.py\" || python \"${CLAUDE_PLUGIN_ROOT}/scripts/on_file_access.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

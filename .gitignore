@@ -1,0 +1,34 @@
+# --- Project Specific ---
+.claude/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# --- Tools & Linters ---
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# --- Coverage ---
+.coverage
+coverage.json
+htmlcov/
+
+# --- Virtual Environments ---
+.venv/
+venv/
+env/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- IDE ---
+.idea/
+.vscode/
+*.swp

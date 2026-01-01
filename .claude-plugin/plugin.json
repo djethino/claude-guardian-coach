@@ -1,0 +1,19 @@
+{
+  "name": "claude-guardian-coach",
+  "version": "0.1.0",
+  "description": "Behavioral guidance and context preservation for Claude Code",
+  "author": {
+    "name": "ASymptOmatik"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "coaching",
+    "context",
+    "compaction",
+    "guidance",
+    "hook",
+    "plugin"
+  ]
+}

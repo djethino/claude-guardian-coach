@@ -1,0 +1,13 @@
+{
+  "name": "claude-guardian-coach",
+  "owner": {
+    "name": "ASymptOmatik"
+  },
+  "plugins": [
+    {
+      "name": "claude-guardian-coach",
+      "source": "./",
+      "description": "Behavioral guidance and context preservation for Claude Code"
+    }
+  ]
+}
