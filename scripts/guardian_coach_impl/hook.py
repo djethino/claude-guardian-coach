@@ -1,7 +1,7 @@
 """Guardian Coach for Claude Code.
 
 Lightweight coaching plugin:
-1. Path correction: Converts absolute paths to relative for Edit/Write/Read
+1. Path correction: Converts absolute paths to relative for Edit/Write/Read/MultiEdit
 2. Coaching: Guides Claude toward native tools (Edit/Write instead of sed/echo)
 """
 
@@ -34,13 +34,12 @@ def main() -> int:
     if cwd == "":
         cwd = None
 
-    # Handle Edit/Write/Read tools - rewrite absolute paths to relative
+    # Handle Edit/Write/Read/MultiEdit tools - rewrite absolute paths to relative
     if should_fix_path(tool_name):
         file_path = tool_input.get("file_path")
         if isinstance(file_path, str):
-            corrected_path, reason = analyze_and_fix_path(file_path, cwd)
+            corrected_path, _ = analyze_and_fix_path(file_path, cwd)
             if corrected_path:
-                # Try updatedInput for all tools (including Edit)
                 output = {
                     "hookSpecificOutput": {
                         "hookEventName": "PreToolUse",

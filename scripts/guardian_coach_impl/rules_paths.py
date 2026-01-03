@@ -116,4 +116,4 @@ def should_fix_path(tool_name: str) -> bool:
     Returns:
         True if the tool's file_path should be checked and fixed
     """
-    return tool_name in {"Read", "Edit", "Write"}
+    return tool_name in {"Read", "Edit", "Write", "MultiEdit"}
