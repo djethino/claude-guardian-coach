@@ -1,5 +1,15 @@
 # Guardian Coach
 
+> **⚠️ DEPRECATED** — This plugin is no longer maintained.
+>
+> **Why?** Claude Code now natively handles the features this plugin provided:
+> - **Native tool preference** (Edit over `sed`, Read over `cat`, etc.) — Added in [v2.1.21](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)
+> - **Path handling fixes** (absolute/relative path issues on Windows) — Fixed in v2.1.0 and v2.1.7
+>
+> **Successor:** [claude-metacognition](https://github.com/djethino/claude-metacognition) — Provides metacognitive reflection and context preservation features that Guardian Coach pioneered.
+
+---
+
 Claude Code plugin for behavioral guidance and context preservation.
 
 ## Purpose
@@ -104,4 +114,6 @@ MIT — Copyright (c) 2025 ASymptOmatik
 
 ## See Also
 
-**[claude-code-safety-net](https://github.com/kenryu42/claude-code-safety-net)** — Complementary plugin for security. Blocks destructive commands (`rm -rf`, `git reset --hard`, `git push --force`, etc.). Guardian Coach focuses on guidance; safety-net on protection. Both work together.
+**[claude-metacognition](https://github.com/djethino/claude-metacognition)** — The successor to Guardian Coach. Focuses on metacognitive reflection (pre-task analysis, post-task verification) and context preservation after compaction.
+
+**[claude-code-safety-net](https://github.com/kenryu42/claude-code-safety-net)** — Complementary plugin for security. Blocks destructive commands (`rm -rf`, `git reset --hard`, `git push --force`, etc.).
